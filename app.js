@@ -9,14 +9,17 @@ const shopRoutes = require('./routes/shop');
 
 const app = express();
 
+app.set('view engine', 'pug'); // usando pug como template dinamico
+app.set('views', 'views'); // onde achar os templates
+
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public'))) //acha a pasta public dentro do projeto
 
 app.use('/admin', adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(rootDir, '/views', '404.html'));
+    res.status(404).render("404");
 })
 
 app.listen(3000);
