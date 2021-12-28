@@ -12,4 +12,4 @@ router.get('/', (req, res, next) => {
     res.render('shop', {prods: products, docTitle: 'Shop'}); // objetos que vão para dentro do pug
 });
 
-module.exports = router;
+module.exports = router; // uma forma de exportar as rotas

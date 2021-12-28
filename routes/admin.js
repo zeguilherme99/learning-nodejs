@@ -18,6 +18,6 @@ router.post('/add-product', (req, res, next) => {
     res.redirect('/');
 });
 
-exports.routes = router;
+exports.routes = router; // outra forma de se importar as rotas
 exports.products = products;
 
