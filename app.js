@@ -1,22 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const expressHbs = require('express-handlebars');
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-
 const app = express();
 
-app.engine('hbs',
-    expressHbs({
-        layoutsDir: 'views/layouts',
-        defaultLayout: 'main-layout',
-        extname: 'hbs'
-    })
-); // onde encontrar o layout 
-app.set('view engine', 'hbs'); // usando handlebars como template dinamico
+app.set('view engine', 'ejs'); // usando ejs como template dinamico
 app.set('views', 'views'); // onde achar os templates
 
 app.use(bodyParser.urlencoded({extended: false}));
