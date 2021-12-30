@@ -9,8 +9,14 @@ const shopRoutes = require('./routes/shop');
 
 const app = express();
 
-app.engine('hbs', expressHbs())
-app.set('view engine', 'hbs'); // usando pug como template dinamico
+app.engine('hbs',
+    expressHbs({
+        layoutsDir: 'views/layouts',
+        defaultLayout: 'main-layout',
+        extname: 'hbs'
+    })
+); // onde encontrar o layout 
+app.set('view engine', 'hbs'); // usando handlebars como template dinamico
 app.set('views', 'views'); // onde achar os templates
 
 app.use(bodyParser.urlencoded({extended: false}));
