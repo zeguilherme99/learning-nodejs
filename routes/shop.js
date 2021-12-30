@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     const products = adminData.products;
-    res.render('shop', { prods: products, docTitle: 'Shop', path: '/', pageTitle: 'Shop' }); // objetos que vão para dentro do pug
+    res.render('shop', { prods: products,path: '/', pageTitle: 'Shop', hasProducts: products.length > 0 }); // objetos que vão para dentro do pug ou handlebars
 });
 
 module.exports = router; // uma forma de exportar as rotas

@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path')
-const rootDir = require('./util/path')
+const path = require('path');
+const expressHbs = require('express-handlebars');
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -9,7 +9,8 @@ const shopRoutes = require('./routes/shop');
 
 const app = express();
 
-app.set('view engine', 'pug'); // usando pug como template dinamico
+app.engine('hbs', expressHbs())
+app.set('view engine', 'hbs'); // usando pug como template dinamico
 app.set('views', 'views'); // onde achar os templates
 
 app.use(bodyParser.urlencoded({extended: false}));
