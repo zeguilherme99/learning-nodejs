@@ -19,7 +19,7 @@ app.use('/admin', adminData.routes); // uma forma de importar as rotas
 app.use(shopRoutes); // outra forma de se importar as rotas
 
 app.use((req, res, next) => {
-    res.status(404).render("404");
+    res.status(404).render("404", {pageTitle: 'Page Not Found'});
 })
 
 app.listen(3000);
