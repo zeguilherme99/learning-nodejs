@@ -16,6 +16,8 @@ router.post('/add-product', adminController.postAddProduct);
 
 router.get('/edit-product/:productId', adminController.getEditProduct);
 
+router.post('/edit-product');
+
 
 exports.routes = router; // outra forma de se importar as rotas
 
